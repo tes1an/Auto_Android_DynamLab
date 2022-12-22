@@ -65,8 +65,10 @@ function config(){
 							echo -e "\n\n${Purple}[+]${FC} Entorno configurado con exito.\n"
 						else
 							echo -e "${Red}[!]${FC} ${Purple}firda-server${FC} no se encuentra en el directorio actual de trabajo, por lo que se procedera a descargar"
-							wget -q "https://github.com/tes1an/Auto_Android_DynamLab/raw/main/frida-sv"
-							7z x $PWD/frida-sv &>/dev/null
+                                                        wget -q "https://github.com/tes1an/Auto_Android_DynamLab/raw/main/frida-sv"
+                                                        7z x $PWD/frida-sv &>/dev/null
+                                                        mv frida-sv\~ frida-server
+                                                        rm frida-sv
 							sleep 2
 							clear -x
 							config
