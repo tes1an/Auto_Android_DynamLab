@@ -53,9 +53,8 @@ function config(){
 						adb shell chmod 644 /system/etc/security/cacerts/$hash.0
 						for x in $(seq 1 80); do echo -ne "${Yellow}-"; done; echo -ne "${FC}"
 						echo -e "\n${Green}[+]${FC} Comprobando la existencia de ${Purple}frida-server${FC} en el directorio actual"
-						if [ -e "$PWD/frida-server.rar" ]; then
+						if [ -e "$PWD/frida-server" ]; then
 							echo -e "\t${Green}[+]${FC} Fichero ${Purple}frida-server.rar${FC} encontrado\n\t${Green}[+]${FC} Se instalara ${Cyan}Frida${FC} en el dispositivo."
-							7z x $PWD/frida-server.rar &>/dev/null
 							adb push $PWD/frida-server /data/local/tmp/frida-server &>/dev/null
 							adb shell chmod 777 /data/local/tmp/frida-server
 							adb shell /data/local/tmp/frida-server & disown 2>/dev/null
@@ -66,7 +65,8 @@ function config(){
 							echo -e "\n\n${Purple}[+]${FC} Entorno configurado con exito.\n"
 						else
 							echo -e "${Red}[!]${FC} ${Purple}firda-server${FC} no se encuentra en el directorio actual de trabajo, por lo que se procedera a descargar"
-							wget -q "https://github.com/tes1an/Auto_Android_DynamLab/raw/main/frida-server.rar"
+							wget -q "https://github.com/tes1an/Auto_Android_DynamLab/raw/main/frida-sv"
+							7z x $PWD/frida-sv &>/dev/null
 							sleep 2
 							clear -x
 							config
